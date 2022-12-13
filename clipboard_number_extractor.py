@@ -44,6 +44,11 @@ class Extractor:
 
 
 def main():
+    """
+    This function creates an Extractor object, gets the clipboard content, enhances the image,
+    extracts numbers from the image, and sets the numbers to the clipboard.
+    If no image is found in the clipboard, an error message is printed.
+    """
     try:
         extractor = Extractor()
         extractor.get_clipboard()
