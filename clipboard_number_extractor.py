@@ -27,23 +27,19 @@ class Extractor:
         return f"Numbers found:\n{self.numbers}" if self.numbers else "No numbers found."
 
     def enhance_image(self, enhance_factor: float = 1.5):
-        """ Increase contrast and sharpness of self.image """
         contrast_enhancer = ImageEnhance.Contrast(self.image)
         self.image = contrast_enhancer.enhance(enhance_factor)
         sharpness_enhancer = ImageEnhance.Contrast(self.image)
         self.image = sharpness_enhancer.enhance(enhance_factor)
 
     def parse_image(self):
-        """ Analyze image and extract numbers """
         pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
         self.numbers = image_to_string(self.image, lang="eng", config="digits").strip()
 
     def get_clipboard(self):
-        """ Get the clipboard content """
         self.image = ImageGrab.grabclipboard()
 
     def set_clipboard(self):
-        """ Set the clipboard content """
         clipboard.copy(self.numbers)
 
 
