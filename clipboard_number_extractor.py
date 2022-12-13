@@ -4,14 +4,29 @@ import clipboard
 
 
 class Extractor:
+    """
+    Extractor is a class that can be used to extract numbers from an image in the clipboard and insert these numbers
+    back in to the clipboard.
+
+    Attributes:
+        image (PIL.Image): The image to be processed.
+        numbers (str): The numbers found in the image.
+
+    Methods:
+        get_clipboard: Get the clipboard content and set it as the image to be processed.
+        enhance_image: Enhance the contrast and sharpness of the image.
+        parse_image: Analyze the image and extract numbers from it.
+        set_clipboard: Set the numbers found in the image to the clipboard.
+    """
+
     def __init__(self):
         self.image = None
         self.numbers = None
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f"Numbers found:\n{self.numbers}" if self.numbers else "No numbers found."
 
-    def enhance_image(self, enhance_factor=1.5):
+    def enhance_image(self, enhance_factor: float = 1.5):
         """ Increase contrast and sharpness of self.image """
         contrast_enhancer = ImageEnhance.Contrast(self.image)
         self.image = contrast_enhancer.enhance(enhance_factor)
