@@ -19,7 +19,7 @@ These packages can be installed using pip:
 
 To use the Extractor script, simply run the main.py file:
 
-`python main.py`
+`python extractor.py`
 
 This will create an Extractor object, get the clipboard content, enhance the image, extract numbers from the image, and set the numbers to the clipboard. If no image is found in the clipboard, an error message will be printed.
 ## License
